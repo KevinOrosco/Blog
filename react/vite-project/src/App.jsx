@@ -1,10 +1,10 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import { Post } from "./components/Post";
+import  Post  from "./components/Post";
 import { useEffect, useState } from "react";
 import supabase from "./lib/helper/supabaseClient";
 
-export function App() {
+export default function App() {
   const [user, setUser] = useState(null);
   //useEffect depende de las variables que se van actualizando a medida del codigo, estas son llamadas dependencias, el useEffect es capaz de ejecutarse una unica vez al inicio del codigo en caso de que se lo llame. su funcion es ejecutar y renderizar
   //En la primer variable del corchete es el valor q va tomar el useState, ocea, en este caso "user" va tomar "null"
@@ -19,7 +19,10 @@ export function App() {
       } else {
         setUser(data?.session?.user);
       }
+
+      
     };
+    getSession();
   }, []);
 
   const handleLogin = async () => {
@@ -31,6 +34,8 @@ export function App() {
     } else {
       console.log(data);
     }
+
+    
   };
 
   return (
@@ -41,7 +46,7 @@ export function App() {
         titulo={"Capibara"}
         desciption={"Un Capibara"}
         link={
-          "https://media.istockphoto.com/id/1377978280/es/foto/capibara.jpg?s=1024x1024&w=is&k=20&c=b7E5QRIN-4boChfTKXCPfZbdiIAkWVRqXK3hMzYa2AQ="
+          "react/vite-project/src/imagenes/1725558403006.jpg"
         }
         parrafo={"Este es un Capibara de internet"}
       />
